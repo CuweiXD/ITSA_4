@@ -18,18 +18,31 @@
 ### 解答
 ```
 #include <iostream>
-#include<iomanip>
 using namespace std;
-
 int main()
 {
-    double x = 0;
-    double ans = 0;
+    int start1 = 0, start2 = 0, end1 = 0, end2 = 0, time = 0, cash = 0;
+    cin >> start1 >> start2;
+    cin >> end1 >> end2;
 
-    cin >> x;
-    ans = x * 1.6;
+    time = (end1 * 60 + end2) - (start1 * 60 + start2);
 
-    cout << fixed << setprecision(1) << ans << endl;
+    if (time <= 120 && time > 0) {
+
+        cash = (time / 30) * 30;
+    }
+    else if (time > 120 && time <= 240) {
+
+        cash = 120 + (time - 120) / 30 * 40;
+
+    }
+    else {
+
+        cash = 120 + 160 + (time - 240) / 30 * 60;
+
+    }
+
+    cout << cash << endl;
 
     return 0;
 }
